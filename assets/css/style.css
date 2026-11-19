@@ -193,8 +193,8 @@ strong { font-weight: 600; color: var(--heading); }
 
 /* ---------- Home hero ---------- */
 .hero { background: var(--band); padding: 64px 0 70px; }
-/* Name on the left, photo right next to it, the pair centered in the band (user, 11-19) */
-.hero-grid { display: flex; justify-content: center; align-items: center; gap: 72px; }
+/* Layout A (user pick): name on the left, photo right next to it */
+.hero-grid { display: flex; justify-content: flex-start; align-items: center; gap: 72px; }
 .hero-copy { min-width: 0; }
 .eyebrow {
   font-size: 12.5px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
@@ -243,7 +243,7 @@ strong { font-weight: 600; color: var(--heading); }
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   transition: opacity 0.35s ease;
 }
-.portrait-switch .portrait-human { transform: scale(1.3); transform-origin: 52% 55%; }
+/* profile.jpg is pre-cut (tools/make_profile_photo.py, option 5): sunglasses centered across, 11 px above center */
 .portrait-switch .portrait-cat { opacity: 0; }
 .portrait-switch[aria-pressed="true"] .portrait-cat { opacity: 1; }
 @media (hover: hover) { .portrait-switch:hover .portrait-cat { opacity: 1; } }
