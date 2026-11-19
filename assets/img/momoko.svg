@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Placeholder. Replace with a real photo: save assets/img/momoko.jpg and update index.html. -->
+  <rect width="400" height="400" fill="#fcf6dd"/>
+  <g fill="none" stroke="#d9bc4e" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M122 196 L136 108 L182 152 Q200 146 218 152 L264 108 L278 196 Q284 266 200 274 Q116 266 122 196 Z"/>
+    <path d="M192 224 L200 232 L208 224"/>
+    <path d="M152 232 L108 226 M152 244 L110 252 M248 232 L292 226 M248 244 L290 252"/>
+  </g>
+  <circle cx="172" cy="202" r="8" fill="#d9bc4e"/>
+  <circle cx="228" cy="202" r="8" fill="#d9bc4e"/>
+  <text x="200" y="322" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#7d620f">Momoko</text>
+  <text x="200" y="352" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#7d620f">photo goes here</text>
+</svg>
