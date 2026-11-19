@@ -7,8 +7,8 @@
     if (!grid) return;
     grid.innerHTML = trips.map(function (t) {
       var img = t.photo ? '<img src="' + t.photo + '" alt="' + t.place + '" loading="lazy">' : "";
-      var tag = '<span class="tag ' + (t.type === "personal" ? "tag-award" : "tag-talk") + '">' +
-        (t.type === "personal" ? "Personal" : "Conference") + "</span>";
+      var label = { personal: "Personal", workshop: "Workshop" }[t.type] || "Conference";
+      var tag = '<span class="tag ' + (t.type === "personal" ? "tag-award" : "tag-talk") + '">' + label + "</span>";
       var note = t.note ? '<p class="trip-note" style="color:var(--muted);margin-top:4px">' + t.note + "</p>" : "";
       return '<article class="trip">' + img + '<div class="trip-body">' +
         '<p class="trip-when">' + t.when + "</p>" +

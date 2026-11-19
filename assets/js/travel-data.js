@@ -4,7 +4,7 @@
    Fields
      place  "City, State" or "City, Country"
      when   text shown on the card, e.g. "Oct 2026"
-     type   "conference" or "personal" (sets the small label)
+     type   "conference", "workshop" or "personal" (sets the small label)
      title  what the trip was
      note   optional extra line
      photo  optional, e.g. "assets/img/travel/raleigh.jpg" (adds a photo to the card)
@@ -14,7 +14,7 @@
      title: "Ski trip", photo: "assets/img/travel/banff.jpg" },
    ========================================================================== */
 window.TRIPS = [
-  { place: "Cambridge, MA", when: "Oct 2026", type: "conference",
+  { place: "Cambridge, MA", when: "Oct 2026", type: "workshop",
     title: "MIT Rising Stars in Civil and Environmental Engineering Workshop" },
   { place: "Raleigh, NC", when: "Oct 2026", type: "conference",
     title: "IEEE International Ultrasonics Symposium (IUS 2026)" },
