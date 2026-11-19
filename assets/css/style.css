@@ -193,8 +193,8 @@ strong { font-weight: 600; color: var(--heading); }
 
 /* ---------- Home hero ---------- */
 .hero { background: var(--band); padding: 64px 0 70px; }
-/* Layout A (user pick): name on the left, photo right next to it */
-.hero-grid { display: flex; justify-content: flex-start; align-items: center; gap: 72px; }
+/* Name on the left, photo right next to it, the pair centered in the band (user, 11-19) */
+.hero-grid { display: flex; justify-content: center; align-items: center; gap: 72px; }
 .hero-copy { min-width: 0; }
 .eyebrow {
   font-size: 12.5px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
