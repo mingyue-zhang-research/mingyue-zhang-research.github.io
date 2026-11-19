@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- Placeholder. Save a photo as assets/img/ski.jpg and it replaces this automatically. -->
+  <rect width="400" height="500" fill="#e3f0f1"/>
+  <path d="M0 360 L120 200 L190 290 L250 220 L400 360 L400 500 L0 500 Z" fill="#b9dde2"/>
+  <path d="M120 200 L146 236 L131 230 L118 244 L102 226 Z M250 220 L274 252 L260 246 L248 258 L234 242 Z" fill="#fff"/>
+  <text x="200" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#26707a">Ski photo</text>
+  <text x="200" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#26707a">save as assets/img/ski.jpg</text>
+</svg>
