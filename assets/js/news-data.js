@@ -19,6 +19,11 @@
    ========================================================================== */
 window.NEWS = [
   {
+    date: "2026-11", tag: "Paper", home: true,
+    title: "Final report delivered to the Federal Railroad Administration",
+    text: "<a href=\"publications.html#fra-final\">Towards Rail Inspection at Track Speed</a>."
+  },
+  {
     date: "2026-11", tag: "Award", home: true,
     title: "<a href=\"https://www.linkedin.com/posts/mingyue-zhang-research_im-delighted-to-share-that-i-received-the-activity-7524720454859796480-xIyo/\">First Place Department Poster Award</a>",
     where: "Engineering Graduate Research Symposium, San Diego State University"
@@ -58,7 +63,7 @@ window.NEWS = [
   {
     date: "2026-07", tag: "Talk", home: true,
     title: "Talk at the ASNT Research Symposium 2026",
-    where: "Salt Lake City, UT",
+    where: "American Society for Nondestructive Testing Research Symposium, Salt Lake City, UT",
     text: [
       "<a class=\"paper\" href=\"publications.html#asnt2026\"><i>&ldquo;Local Defect Resonance in Ultrasonic Guided Waves: Mechanism, Modeling, and Experimental Validation for Remote NDE of Damages in Plates.&rdquo;</i></a>",
       "Also published in the symposium proceedings."
@@ -81,7 +86,6 @@ window.NEWS = [
   {
     date: "2025-11", tag: "Paper", home: true,
     title: "Paper published in <i>Ultrasonics</i>",
-    where: "Volume 160, 107912",
     text: "<a href=\"https://doi.org/10.1016/j.ultras.2025.107912\">On the Existence of Local Defect Resonance in Ultrasonic Guided Waves Interaction with Horizontal Defects in Plates</a>."
   },
   {

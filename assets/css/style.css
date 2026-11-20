@@ -378,8 +378,9 @@ strong { font-weight: 600; color: var(--heading); }
   font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 5px; white-space: nowrap;
   background: var(--band-soft); color: var(--muted); border: 1px solid var(--line);
 }
-.status-published { background: var(--aqua-soft); color: var(--heading); border-color: transparent; }
-.status-accepted { background: var(--yellow-soft); color: var(--gold-text); border-color: transparent; }
+/* chip colors: Published / Report / Accepted / In press = light green; Under review = yellow; In preparation = gray */
+.status-published, .status-accepted { background: var(--aqua-soft); color: var(--heading); border-color: transparent; }
+.status-review { background: var(--yellow-soft); color: var(--gold-text); border-color: transparent; }
 .pub-title { font-size: 17px; font-weight: 600; color: var(--heading); line-height: 1.45; margin: 0 0 6px; }
 .pub-authors { font-size: 14.5px; color: var(--muted); margin: 0 0 4px; }
 .pub-authors strong { color: var(--heading); }
