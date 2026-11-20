@@ -36,7 +36,7 @@
   --shadow: 0 4px 14px rgba(30, 60, 70, 0.08);
   --shadow-hover: 0 10px 26px rgba(30, 60, 70, 0.14);
   --radius: 14px;
-  --maxw: 1060px;
+  --maxw: 1200px;           /* content, header and footer width (user, 11-20; was 1060, header 1180) */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
   color-scheme: light;
@@ -154,7 +154,7 @@ strong { font-weight: 600; color: var(--heading); }
   border-bottom: 1px solid var(--line);
 }
 .header-inner {
-  max-width: 1180px; margin: 0 auto; padding: 0 28px;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 28px;
   height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
 }
 .brand {
@@ -585,6 +585,12 @@ strong { font-weight: 600; color: var(--heading); }
 .footer-links { display: flex; gap: 4px; }
 
 /* ---------- Responsive ---------- */
+/* Whole-site scale on wider screens (user, 2026-11-20): the page at 100 % looks like browser zoom 80 %,
+   so text, spacing and images shrink together. Phones and tablets (880 px and narrower) keep full size.
+   Change 0.8 to tune. */
+@media (min-width: 881px) {
+  html { zoom: 0.8; }
+}
 @media (max-width: 1000px) {
   .nav-icons .icon-social { display: none; }
 }
