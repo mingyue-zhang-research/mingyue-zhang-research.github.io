@@ -76,18 +76,27 @@
     var parts = String(item.date).split("-");
     return parts.length > 1 ? MONTHS[parseInt(parts[1], 10) - 1] + " " + parts[0] : parts[0];
   }
-  /* Line icons for each news tag: trophy, microphone, page, chalkboard. */
+  /* Line icons for each news tag: star rosette with two tails, microphone, page, chalkboard.
+     Award = star rosette (user pick W2, 2026-11-21; drawn by tools/award_icon_final.py; old trophy in
+     review/site_before_icon_261121.js). It is shown 20 % larger than the others, see ICON_BOX. */
   var ICON_PATHS = {
-    Award: '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 6h3v1.5A3.5 3.5 0 0 1 16.6 11M7 6H4v1.5A3.5 3.5 0 0 0 7.4 11"/>',
+    Award: '<circle cx="12" cy="9.45" r="6.6"/><path d="M12 6.47L12.85 8.6L15.14 8.75L13.38 10.22L13.94 12.44L12 11.22L10.06 12.44L10.62 10.22L8.86 8.75L11.15 8.6Z" fill="currentColor" stroke-width="1"/><path d="M6.59 13.24L3.08 18.9L6.4 18.44L8.3 21.19L9.74 15.65M17.41 13.24L20.92 18.9L17.6 18.44L15.7 21.19L14.26 15.65"/>',
     Talk: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>',
     Paper: '<path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8l-5-5zM14 3v5h5M8.5 13h7M8.5 17h5"/>',
     Teaching: '<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l2.5-4M16 20l-2.5-4M7 8.5h6M7 11.5h4"/>'
   };
+  /* Words shown for a tag in the News key and the icon tooltips; the data keeps the short tag. */
+  var TAG_LABELS = { Award: "Award &amp; Honor" };
+  function tagLabel(tag) { return TAG_LABELS[tag] || tag; }
+  /* Drawing box + stroke per icon. The award rosette uses a tighter box (2 2 20 20 = drawn 1.2x larger in the
+     same circle) and stroke 1.5 (= 1.8 / 1.2) so its line weight matches the other icons (user, 11-21). */
+  var ICON_BOX = { Award: 'viewBox="2 2 20 20" stroke-width="1.5"' };
   function symbolHTML(tag, labelled) {
     if (!ICON_PATHS[tag]) return "";
-    var a11y = labelled ? ' role="img" aria-label="' + tag + '" title="' + tag + '"' : ' aria-hidden="true"';
+    var a11y = labelled ? ' role="img" aria-label="' + tagLabel(tag) + '" title="' + tagLabel(tag) + '"' : ' aria-hidden="true"';
     return '<span class="news-sym sym-' + tag.toLowerCase() + '"' + a11y + '>' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+      '<svg ' + (ICON_BOX[tag] || 'viewBox="0 0 24 24" stroke-width="1.8"') +
+      ' fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">' +
       ICON_PATHS[tag] + "</svg></span>";
   }
   function newsItemHTML(item) {
@@ -106,8 +115,13 @@
     }
     var legend = document.getElementById("news-legend");
     if (legend) {
-      legend.innerHTML = ["Award", "Talk", "Paper", "Teaching"].map(function (t) {
-        return "<span>" + symbolHTML(t, false) + t + "</span>";
+      /* The key lists only the tags used in this page's list: Home shows the home: true items, which have no
+         Teaching item, so Home's key has no Teaching (user, 11-21); the News page shows every item. */
+      var shown = preview ? items.filter(function (it) { return it.home; }) : items;
+      legend.innerHTML = ["Award", "Talk", "Paper", "Teaching"].filter(function (t) {
+        return shown.some(function (it) { return it.tag === t; });
+      }).map(function (t) {
+        return "<span>" + symbolHTML(t, false) + tagLabel(t) + "</span>";
       }).join("");
     }
     var all = document.getElementById("news-all");

@@ -5,7 +5,8 @@
    Fields
      date   "YYYY-MM" (shows as "Oct 2026")
      label  optional, overrides the date text
-     tag    Award | Talk | Paper | Teaching   (sets the icon and the headline color)
+     tag    Award | Talk | Paper | Teaching   (sets the icon and the headline color;
+            Award is labeled "Award & Honor" in the News key, see TAG_LABELS in site.js)
      title  short headline, e.g. "ASC PhD Scholarship, 2026–2027"
      where  optional small gray line under the headline (who gives the honor, place).
             Used for awards only (user, 2026-11-20): talks, papers and teaching have no venue line.
@@ -13,6 +14,9 @@
             use a list ["line 1", "line 2"] for several lines.
             For a talk that has a paper, write the link as <a class="paper" href="...">
             and a small page icon is added in front of the title automatically.
+            For a recipient count, write
+            <span class="stat">One of <strong>16 recipients worldwide</strong>.</span>
+            (whole line in award gold, the count phrase bold; user 2026-11-21).
      home   true to also show the item on the Home page
 
    Month sources: award notices in PhD_Work\Awards_Honors, the 2026 symposium
@@ -33,7 +37,7 @@ window.NEWS = [
     date: "2026-10", tag: "Award", home: true,
     title: "<a href=\"https://cee.mit.edu/community/rising-stars-workshop/\">MIT CEE Rising Star</a>",
     where: "Massachusetts Institute of Technology, Cambridge, MA",
-    text: "One of 16 recipients worldwide."
+    text: "<span class=\"stat\">One of <strong>16 recipients worldwide</strong>.</span>"
   },
   {
     date: "2026-10", tag: "Talk", home: true,
@@ -49,7 +53,7 @@ window.NEWS = [
     date: "2026-08", tag: "Award", home: true,
     title: "<a href=\"https://www.asc-composites.org/phd-research-scholarships\">ASC PhD Scholarship, 2026&ndash;2027</a>",
     where: "American Society for Composites",
-    text: "One of 3 recipients nationwide."
+    text: "<span class=\"stat\">One of <strong>3 recipients nationwide</strong>.</span>"
   },
   {
     date: "2026-08", tag: "Award", home: true,
@@ -92,7 +96,7 @@ window.NEWS = [
     date: "2025-06", tag: "Award", home: true,
     title: "<a href=\"https://foundation.asnt.org/funding/ndt-fellowships\">ASNT Foundation Fellowship Award, 2025&ndash;2026</a>",
     where: "American Society for Nondestructive Testing",
-    text: "One of 5 recipients nationwide."
+    text: "<span class=\"stat\">One of <strong>5 recipients nationwide</strong>.</span>"
   },
   {
     date: "2024-10", tag: "Talk",
