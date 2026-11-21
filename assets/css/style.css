@@ -28,8 +28,9 @@
   --link: #26707a;          /* teal links, AA contrast on white and band */
   --gold-text: #7d620f;     /* small gold labels, AA contrast */
   --heading: #2a2f35;
-  --text: #3d434a;
-  --muted: #5f676f;
+  --title-ink: #111111;     /* Research project titles: black (user, 11-20) */
+  --text: #32383e;          /* grays a little darker (user, 11-20; was #3d434a) */
+  --muted: #4b5359;         /* was #5f676f */
   --line: #e2e8ea;
   --btn-text: #17363b;
   --header-bg: rgba(255, 255, 255, 0.92);
@@ -66,8 +67,9 @@
   --link: #8bc9d0;
   --gold-text: #f1d157;
   --heading: #eef3f4;
-  --text: #cfd8db;
-  --muted: #9aa6ab;
+  --title-ink: #f7fafa;
+  --text: #d9e1e4;          /* dark mode: grays a little lighter for the same contrast gain (was #cfd8db) */
+  --muted: #aeb9bd;         /* was #9aa6ab */
   --line: #2a383c;
   --btn-text: #12282c;
   --header-bg: rgba(18, 24, 27, 0.9);
@@ -99,8 +101,9 @@
     --link: #8bc9d0;
     --gold-text: #f1d157;
     --heading: #eef3f4;
-    --text: #cfd8db;
-    --muted: #9aa6ab;
+    --title-ink: #f7fafa;
+    --text: #d9e1e4;
+    --muted: #aeb9bd;
     --line: #2a383c;
     --btn-text: #12282c;
     --header-bg: rgba(18, 24, 27, 0.9);
@@ -135,6 +138,18 @@ p { margin: 0 0 1em; }
 strong { font-weight: 600; color: var(--heading); }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+/* News, Publications and Travel are just wide enough for every title to fit on one line (user, 11-20).
+   Measured in Edge with the titles forced onto one line (scratchpad widths/measure_needed.py): News needs 1312 px
+   (JNDE paper title), Publications 1412 px (JNDE title), Travel 1351 px (IWSHM 2025 talk). Each gets about 18 px
+   more for font differences on other systems. Header and footer follow the page width. Re-measure after adding
+   a longer title. */
+body.page-news { --maxw: 1330px; }
+body.page-pubs { --maxw: 1430px; }
+body.page-travel { --maxw: 1370px; }
+body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, then a little narrower to suit the 860 px figures) */
+/* Where a title still wraps, fill the lines to full width but avoid a single word alone on the last line.
+   (balance was tried first; it split long titles into two half-width lines, user 11-20.) */
+.news-title, .news-text, .pub-title, .pub-venue { text-wrap: pretty; }
 .skip-link {
   position: absolute; left: 12px; top: -60px; z-index: 100;
   background: var(--surface); padding: 8px 14px; border-radius: 8px; box-shadow: var(--shadow);
@@ -194,7 +209,7 @@ strong { font-weight: 600; color: var(--heading); }
 /* ---------- Home hero ---------- */
 .hero { background: var(--band); padding: 64px 0 70px; }
 /* Layout A (user pick): name on the left, photo right next to it */
-.hero-grid { display: flex; justify-content: flex-start; align-items: center; gap: 72px; }
+.hero-grid { display: flex; justify-content: flex-start; align-items: center; gap: 160px; }   /* name left, photo beside it with a wide gap (user, 11-20; was 72px) */
 .hero-copy { min-width: 0; }
 .eyebrow {
   font-size: 12.5px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
@@ -286,7 +301,9 @@ strong { font-weight: 600; color: var(--heading); }
   border-radius: 2px; background: var(--yellow);
 }
 .more-link { font-size: 15px; font-weight: 600; white-space: nowrap; }
-.prose { max-width: 780px; }
+/* Home About: paragraph and keyword chips share one width, the right edge of the "Wave propagation" chip
+   (858.9 px measured in Edge; user, 11-20) */
+.prose, .prose + .chips { max-width: 860px; }
 .prose p { font-size: 17px; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
@@ -315,7 +332,7 @@ strong { font-weight: 600; color: var(--heading); }
 .sym-talk { background: var(--aqua-soft); color: var(--sym-talk); }
 .sym-paper { background: var(--coral-soft); color: var(--sym-paper); }
 .sym-teaching { background: var(--lilac-soft); color: var(--sym-teaching); }
-.news-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 26px; font-size: 14px; color: var(--muted); }
+.news-legend { display: flex; flex-wrap: wrap; gap: 8px 36px; margin: 0 0 26px; font-size: 16.5px; color: var(--muted); }   /* was 14px, gap 22px (user, 11-20) */
 .news-legend > span { display: inline-flex; align-items: center; gap: 7px; }
 .news-legend .news-sym { width: 26px; height: 26px; margin: 0; }
 .news-legend .news-sym svg { width: 15px; height: 15px; }
@@ -334,6 +351,7 @@ strong { font-weight: 600; color: var(--heading); }
   color: var(--muted); line-height: 1.5; margin: 0 0 5px;
 }
 .news-text { font-size: 15px; color: var(--text); margin: 0 0 2px; line-height: 1.6; }
+#news-preview .news-text a { font-style: italic; }   /* Home news list only: paper and report titles in italics like the talk titles (user, 11-20) */
 .news-text a.paper .paper-icon { width: 14px; height: 14px; color: var(--sym-paper); vertical-align: -2px; margin-right: 1px; }
 .tag {
   display: inline-block; vertical-align: 2px; margin-right: 8px;
@@ -430,17 +448,33 @@ strong { font-weight: 600; color: var(--heading); }
 /* Text-only card, and wide figure placed under the text */
 .project.no-fig, .project.fig-wide { grid-template-columns: minmax(0, 1fr); }
 .project.fig-wide .project-figure { order: 2; max-width: 860px; }
+.project.fig-wide > .project-figure { margin-left: auto; margin-right: auto; }   /* single wide figure centered in the card (user, 11-20) */
+#gl.project.fig-wide > .project-figure,
+#ldr.project.fig-wide > .project-figure,
+#rail.project.fig-wide > .project-figure { max-width: 920px; }   /* GL figure, LDR poster and FRA slide a little larger than the others (user, 11-20: 1000, then 920) */
 /* Two figures side by side under the text (e.g. Composite Laminates) */
 .project.fig-wide .fig-row { order: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
 .project.fig-wide .fig-row .project-figure { max-width: none; }
 @media (max-width: 640px) { .project.fig-wide .fig-row { grid-template-columns: minmax(0, 1fr); } }
+/* One row whose pictures share one height: each column is as wide as its picture's aspect ratio, given inline
+   as --cols on the row (DIC card, user 11-20). Tablets and phones stack the pictures; the tall animation and the
+   plot stack keep a readable width instead of filling the card. */
+.project.fig-wide .fig-row.matched { grid-template-columns: var(--cols); }
+/* DIC row: same width as the single wide figures (860 px, e.g. the FRA slide), centered (user, 11-20) */
+.project.fig-wide .fig-row.matched { width: 100%; max-width: 860px; margin-left: auto; margin-right: auto; }
+.project-figure video { display: block; width: 100%; height: auto; border-radius: 8px; background: #fff; border: 1px solid var(--line); }
+@media (max-width: 880px) {
+  .project.fig-wide .fig-row.matched { grid-template-columns: minmax(0, 1fr); }
+  .project.fig-wide .fig-row.matched video { max-width: 220px; margin: 0 auto; }
+  .project.fig-wide .fig-row.matched .poster-link { max-width: 440px; margin: 0 auto; }
+}
 .poster-link { display: block; cursor: zoom-in; }
 .poster-link img { transition: box-shadow 0.2s; }
 .poster-link:hover img { box-shadow: var(--shadow-hover); }
 .fig-pair { display: grid; grid-template-columns: 1.45fr 1fr; gap: 14px; align-items: center; }
 @media (max-width: 640px) { .fig-pair { grid-template-columns: minmax(0, 1fr); } }
 .project-period { font-size: 13px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gold-text); margin: 0 0 6px; }
-.project h2 { font-family: var(--font-serif); font-weight: 500; font-size: 24px; letter-spacing: -0.2px; margin: 0 0 10px; padding: 0; }
+.project h2 { font-family: var(--font-serif); font-weight: 700; font-size: 24px; letter-spacing: -0.2px; margin: 0 0 10px; padding: 0; color: var(--title-ink); }   /* black and bold (user, 11-20; was 500, --heading) */
 .project h2::after { display: none; }
 .project-collab { font-size: 14.5px; color: var(--muted); margin: -2px 0 12px; }
 /* funding links read like the plain "supported by ..." text (user, 11-19); underline on hover */
@@ -451,7 +485,7 @@ strong { font-weight: 600; color: var(--heading); }
 .project-points li::before { content: "\25B8"; position: absolute; left: 0; color: var(--aqua-strong); font-weight: 700; }
 :root[data-theme="dark"] .project-points li::before { color: var(--aqua); }
 .project-related { font-size: 14px; color: var(--muted); margin: 0; }
-.project-related a { font-weight: 600; }
+.project-related a { font-weight: 600; color: var(--head-paper); }   /* same color as the paper headlines in News, e.g. "Final report delivered to the FRA" (user, 11-20) */
 .project .chips { margin: 0 0 14px; }
 .project .chip { font-size: 12.5px; padding: 3px 11px; }
 
@@ -551,7 +585,7 @@ strong { font-weight: 600; color: var(--heading); }
 @media (max-width: 640px) { .polaroid-pair { gap: 14px; } .polaroid-pair .polaroid { padding: 10px 10px 44px; } }
 .polaroid figcaption {
   position: absolute; left: 0; right: 0; bottom: 14px; text-align: center;
-  font-family: var(--font-serif); font-style: italic; font-size: 19px; color: #3d434a;
+  font-family: var(--font-serif); font-style: italic; font-size: 19px; color: #32383e;
 }
 .tape {
   position: absolute; top: -13px; left: 50%; width: 96px; height: 28px; z-index: 2;

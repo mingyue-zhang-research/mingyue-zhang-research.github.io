@@ -7,7 +7,8 @@
      label  optional, overrides the date text
      tag    Award | Talk | Paper | Teaching   (sets the icon and the headline color)
      title  short headline, e.g. "ASC PhD Scholarship, 2026–2027"
-     where  optional small gray line under the headline (venue, place)
+     where  optional small gray line under the headline (who gives the honor, place).
+            Used for awards only (user, 2026-11-20): talks, papers and teaching have no venue line.
      text   optional detail line(s), HTML allowed (links: <a href="...">...</a>);
             use a list ["line 1", "line 2"] for several lines.
             For a talk that has a paper, write the link as <a class="paper" href="...">
@@ -32,21 +33,16 @@ window.NEWS = [
     date: "2026-10", tag: "Award", home: true,
     title: "<a href=\"https://cee.mit.edu/community/rising-stars-workshop/\">MIT CEE Rising Star</a>",
     where: "Massachusetts Institute of Technology, Cambridge, MA",
-    text: [
-      "One of 16 recipients worldwide.",
-      "Presented <i>&ldquo;Ultrasonic Guided Waves for Structural Health Monitoring: From Defect Mechanics to Field Applications&rdquo;</i> at the workshop."
-    ]
+    text: "One of 16 recipients worldwide."
   },
   {
     date: "2026-10", tag: "Talk", home: true,
     title: "Talk at IEEE IUS 2026",
-    where: "IEEE International Ultrasonics Symposium, Raleigh, NC",
     text: "<i>&ldquo;Defect-Structure Effects in Ultrasonic Guided Waves Coupling to Local Resonances.&rdquo;</i>"
   },
   {
     date: "2026-09", tag: "Talk", home: true,
     title: "Talk at ASC 2026",
-    where: "41st ASC Annual Technical Conference, Madison, WI",
     text: "<a class=\"paper\" href=\"publications.html#asc2026\"><i>&ldquo;Comparative Study of Single Damage Modes in Composite Panels via Ultrasonic Guided Waves: Global&ndash;Local Modeling and Experiments.&rdquo;</i></a>"
   },
   {
@@ -63,16 +59,11 @@ window.NEWS = [
   {
     date: "2026-07", tag: "Talk", home: true,
     title: "Talk at the ASNT Research Symposium 2026",
-    where: "American Society for Nondestructive Testing Research Symposium, Salt Lake City, UT",
-    text: [
-      "<a class=\"paper\" href=\"publications.html#asnt2026\"><i>&ldquo;Local Defect Resonance in Ultrasonic Guided Waves: Mechanism, Modeling, and Experimental Validation for Remote NDE of Damages in Plates.&rdquo;</i></a>",
-      "Also published in the symposium proceedings."
-    ]
+    text: "<a class=\"paper\" href=\"publications.html#asnt2026\"><i>&ldquo;Local Defect Resonance in Ultrasonic Guided Waves: Mechanism, Modeling, and Experimental Validation for Remote NDE of Damages in Plates.&rdquo;</i></a>"
   },
   {
     date: "2026-06", tag: "Talk",
     title: "Co-authored talk at ASME SSDM 2026",
-    where: "Aerospace Structures, Structural Dynamics, and Materials Conference, Long Beach, CA",
     text: [
       "<i>&ldquo;Local Defect Resonance in Ultrasonic Guided Wave Scattering: Numerical and Experimental Investigation.&rdquo;</i>",
       "Presented by Prof. Margherita Capriotti."
@@ -91,13 +82,11 @@ window.NEWS = [
   {
     date: "2025-09", tag: "Talk",
     title: "Talk at IWSHM 2025",
-    where: "International Workshop on Structural Health Monitoring, Stanford, CA",
     text: "<a class=\"paper\" href=\"https://doi.org/10.12783/shm2025/37432\"><i>&ldquo;Time-Frequency Analysis on Numerical and Experimental Ultrasonic Guided Wave Scattering for Quantitative Damage Characterization in Plates.&rdquo;</i></a>"
   },
   {
     date: "2025-08", tag: "Teaching",
-    title: "Instructor of Record, AE 200 Statics",
-    where: "San Diego State University, Fall 2025"
+    title: "Instructor of Record, AE 200 Statics"
   },
   {
     date: "2025-06", tag: "Award", home: true,
@@ -108,13 +97,11 @@ window.NEWS = [
   {
     date: "2024-10", tag: "Talk",
     title: "Talk at ASC 2024",
-    where: "39th ASC Technical Conference, San Diego, CA",
     text: "<a class=\"paper\" href=\"https://doi.org/10.1007/978-3-032-05212-4_9\"><i>&ldquo;Time-Frequency Analysis for Interlaminar Defect Characterization in Composite Plates through Ultrasonic Guided Waves.&rdquo;</i></a>"
   },
   {
     date: "2024-10", tag: "Talk",
     title: "Co-authored talk at ASC 2024",
-    where: "39th ASC Technical Conference, San Diego, CA",
     text: [
       "<i>&ldquo;Quantitative Analysis of Ultrasonic Guided Wave Interactions with Single-Mode Damage in Composite Laminates.&rdquo;</i>",
       "Presented by Janelle Dela Cueva."
@@ -123,7 +110,6 @@ window.NEWS = [
   {
     date: "2024-08", tag: "Paper",
     title: "Paper published in <i>ASME JNDE</i>",
-    where: "Journal of Nondestructive Evaluation, Diagnostics and Prognostics of Engineering Systems",
     text: "<a href=\"https://doi.org/10.1115/1.4065152\">Ultrasonic Guided Wave Scattering Spectra by Hybrid Global&ndash;Local Modeling for Nondestructive Evaluation in Composites with Varying Defect Features</a>."
   },
   {
