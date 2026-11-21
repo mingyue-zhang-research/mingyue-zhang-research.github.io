@@ -351,6 +351,8 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
   color: var(--muted); line-height: 1.5; margin: 0 0 5px;
 }
 .news-text { font-size: 15px; color: var(--text); margin: 0 0 2px; line-height: 1.6; }
+.news-text .stat { color: var(--head-award); }   /* recipient-count line all in award gold ... (user, 11-21) */
+.news-text .stat strong { font-weight: 600; color: inherit; }    /* ... with "16 recipients worldwide" bold (inherit: the global strong rule is dark) */
 #news-preview .news-text a { font-style: italic; }   /* Home news list only: paper and report titles in italics like the talk titles (user, 11-20) */
 .news-text a.paper .paper-icon { width: 14px; height: 14px; color: var(--sym-paper); vertical-align: -2px; margin-right: 1px; }
 .tag {
@@ -404,6 +406,16 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .pub-authors strong { color: var(--heading); }
 .pub-venue { font-size: 14.5px; font-style: italic; color: var(--text); margin: 0 0 8px; }
 .pub-note { font-size: 13.5px; color: var(--gold-text); margin: 0 0 8px; }
+/* Award / honor lines (Travel talks): gold star rosette before the sentence, same drawing as the News award
+   icon (site.js ICON_PATHS.Award, box 2 2 20 20), and the award name in bold (user, 11-21).
+   The icon takes the text color, so it follows dark mode. */
+.pub-note::before {
+  content: ""; display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -2px;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20' fill='none' stroke='black' stroke-width='1.58' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9.45' r='6.6'/%3E%3Cpath d='M12 6.47L12.85 8.6L15.14 8.75L13.38 10.22L13.94 12.44L12 11.22L10.06 12.44L10.62 10.22L8.86 8.75L11.15 8.6Z' fill='currentColor' stroke-width='1'/%3E%3Cpath d='M6.59 13.24L3.08 18.9L6.4 18.44L8.3 21.19L9.74 15.65M17.41 13.24L20.92 18.9L17.6 18.44L15.7 21.19L14.26 15.65'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='2 2 20 20' fill='none' stroke='black' stroke-width='1.58' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9.45' r='6.6'/%3E%3Cpath d='M12 6.47L12.85 8.6L15.14 8.75L13.38 10.22L13.94 12.44L12 11.22L10.06 12.44L10.62 10.22L8.86 8.75L11.15 8.6Z' fill='currentColor' stroke-width='1'/%3E%3Cpath d='M6.59 13.24L3.08 18.9L6.4 18.44L8.3 21.19L9.74 15.65M17.41 13.24L20.92 18.9L17.6 18.44L15.7 21.19L14.26 15.65'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.pub-note strong { font-weight: 600; color: inherit; }   /* stays gold (the global strong rule is dark) */
 .pub-presenter { font-size: 14px; color: var(--text); margin: 0 0 8px; }
 .pub-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .pill {
