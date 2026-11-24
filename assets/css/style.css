@@ -378,6 +378,10 @@ body.page-research .page-head .burst { width: 260px; }
 .news-text .stat { color: var(--head-award); }   /* recipient-count line all in award gold ... (user, 11-21) */
 .news-text .stat strong { font-weight: 600; color: inherit; }    /* ... with "16 recipients worldwide" bold (inherit: the global strong rule is dark) */
 #news-preview .news-text a { font-style: italic; }   /* Home news list only: paper and report titles in italics like the talk titles (user, 11-20) */
+/* Linked paper / report titles in the news lists use the same text color as unlinked talk titles such as
+   "Defect-Structure Effects ..." (user, 11-23; were link teal); teal + underline on hover keeps them findable. */
+.news-text a { color: var(--text); }
+.news-text a:hover { color: var(--link); }
 /* Home news list only: the two long talk titles each fit on one line (user, 11-23). Largest one-line sizes measured
    in Edge at 1x and 2.5x: ASC 2026 14.45 px, ASNT 2026 13.85 px; set a little under. Recheck if a title or the
    Home width changes. The News page keeps 15 px. */
