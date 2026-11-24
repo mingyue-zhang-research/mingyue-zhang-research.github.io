@@ -57,8 +57,15 @@
   <section class="section" style="padding-top:44px">
     <div class="container">
 
+      <!-- Project index (user, 11-23): grouped jump links to the cards below -->
+      <nav class="project-index" aria-label="Projects on this page">
+        <div><p class="pi-label">Wave physics and modeling</p><ul><li><a href="#ldr">Local defect resonance</a></li><li><a href="#gl">Global&ndash;local modeling</a></li></ul></div>
+        <div><p class="pi-label">Inverse problems and AI</p><ul><li><a href="#inverse">Inverse defect characterization</a></li><li><a href="#hdc">Physics-informed AI</a></li></ul></div>
+        <div><p class="pi-label">Applications</p><ul><li><a href="#composites">Damage in composite laminates</a></li><li><a href="#rail">Rail inspection at track speed</a></li><li><a href="#dic">3D digital image correlation</a></li></ul></div>
+      </nav>
+
       <article class="project fig-wide" id="ldr">
-        <figure class="project-figure"><a class="poster-link" href="assets/img/research/ldr-poster-full.jpg" target="_blank" rel="noopener"><img src="assets/img/research/ldr-poster.jpg" alt="Poster: Local Defect Resonance in Ultrasonic Guided Waves for Remote Defect Detection, Mechanism, Modeling, and Experimental Validation" loading="lazy"></a><figcaption>Poster &ldquo;Local Defect Resonance in Ultrasonic Guided Waves for Remote Defect Detection: Mechanism, Modeling, and Experimental Validation.&rdquo;</figcaption></figure>
+        <figure class="project-figure"><a class="poster-link" href="ldr-methodology.html" target="_blank" rel="noopener"><img src="assets/img/research/ldr-method.jpg" alt="Poster panel on problem formulation and methodology: the 3D full problem with the substructure over a defect, the 2D GL model, the 1D analytical beam approximation of the substructure, the 3D substructure in FEM modeling, and GL scattering spectra for a delamination and a notch" loading="lazy"></a><figcaption>Problem formulation and methodology, from the poster &ldquo;Local Defect Resonance in Ultrasonic Guided Waves for Remote Defect Detection: Mechanism, Modeling, and Experimental Validation.&rdquo; <a class="fig-link" href="assets/docs/ldr-poster.pdf" target="_blank" rel="noopener">View poster (PDF)</a></figcaption></figure>
         <div>
           <p class="project-period">Jan 2023 &ndash; Present</p>
           <h2>Local Defect Resonance for Remote Damage Identification</h2>
@@ -66,9 +73,9 @@
           <ul class="chips"><li class="chip">Ultrasonics</li><li class="chip">LDR</li><li class="chip">SIDO</li><li class="chip">Laser Doppler vibrometry</li><li class="chip">Air-coupled transducers</li><li class="chip">GL</li><li class="chip">Abaqus</li><li class="chip">COMSOL</li></ul>
           <p>Local defect resonance (LDR) is the local resonance of the thin substructure that remains over a defect such as a notch or a delamination. At these frequencies the substructure vibrates strongly and leaves a distinct signature in the guided waves that travel past the defect.</p>
           <ul class="project-points">
-            <li>Developed a mechanics-based theory and an analytical approximation of LDR, benchmarked against the literature and finite element modeling (Abaqus).</li>
-            <li>Validated GL-predicted resonance frequencies within 1% using a laser Doppler vibrometer (LDV).</li>
-            <li>Identified LDRs of aluminum panels remotely up to 750 kHz with a single-input dual-output (SIDO) setup, matching 97.6% in simulations (GL, COMSOL) and 86.6% experimentally with piezoelectric and air-coupled transducers.</li>
+            <li>Developed a <strong>mechanics-based theory</strong> and analytical approximation of LDR, benchmarked against literature and Abaqus finite element modeling.</li>
+            <li>Validated GL-predicted resonance frequencies <strong>within 1%</strong> using a laser Doppler vibrometer (LDV).</li>
+            <li>Identified LDRs of aluminum panels remotely over a <strong>broadband frequency range of 0&ndash;750 kHz</strong> with a single-input dual-output (SIDO) setup, matching <strong>97.6%</strong> in GL and finite element modeling (COMSOL), and <strong>86.6%</strong> experimentally with piezoelectric and air-coupled transducers.</li>
           </ul>
           <p class="project-related">Related &middot; <a href="https://doi.org/10.1016/j.ultras.2025.107912">Ultrasonics (2025)</a> &middot; <a href="publications.html">Structural Health Monitoring (under review)</a> &middot; <a href="publications.html">ASNT Research Symposium (2026)</a></p>
         </div>
@@ -80,10 +87,10 @@
           <p class="project-period">Jul 2026 &ndash; Present</p>
           <h2>Inverse Characterization of Defects Using LDR</h2>
           <ul class="chips"><li class="chip">Inverse problems</li><li class="chip">Surrogate modeling</li></ul>
-          <p>Because the LDR frequencies depend on the size of the defect and the thickness of the substructure, measuring them makes it possible to work backward to the defect geometry.</p>
+          <p>LDR frequencies are governed by the defect size. Inverting this relation estimates the defect geometry directly from measured LDR frequencies.</p>
           <ul class="project-points">
             <li>Developed a fast inverse analysis for defect characterization using Clough&ndash;Tocher (CT) surrogate models.</li>
-            <li>Leave-one-out cross-validation (LOO-CV) gave median errors of 0.03% in LDR frequency and within 0.3% in defect size.</li>
+            <li>Leave-one-out cross-validation (LOO-CV) gave median errors of <strong>0.03%</strong> in LDR frequency and <strong>within 0.3%</strong> in defect size.</li>
           </ul>
           <p class="project-related">Related &middot; Journal paper (in preparation)</p>
         </div>
@@ -96,10 +103,10 @@
           <h2>Hybrid Global&ndash;Local Modeling of Guided Wave Scattering</h2>
           <p class="project-collab">Evanescent-mode study in collaboration with <a href="https://www.unipa.it/persone/docenti/s/antonino.spada">Prof. Antonino Spada</a>, University of Palermo, Italy</p>
           <ul class="chips"><li class="chip">Computational modeling</li><li class="chip">Wave propagation</li><li class="chip">FEA</li><li class="chip">SAFE</li></ul>
-          <p>The global&ndash;local (GL) method couples a finite element model of the local zone around a defect with a semi-analytical description of the guided waves in the rest of the structure. It keeps finite element accuracy where the geometry is complex without meshing the whole structure.</p>
+          <p>The hybrid global&ndash;local (GL) method combines a finite element (FE) model of the local region around a defect with a semi-analytical finite element (SAFE) modal representation of the surrounding waveguide. Coupling the two descriptions at the region boundaries gives the modal reflection and transmission spectra, retaining FE accuracy where the geometry is complex without meshing the entire structure.</p>
           <ul class="project-points">
-            <li>Advanced an efficient hybrid GL framework for broadband guided wave propagation modeling, reproducing benchmark solutions within 2% up to 1 MHz with a more than 1,000&times; speedup relative to finite element analysis.</li>
-            <li>Investigated the role of propagating and evanescent modes in guided wave scattering near structural discontinuities, and derived local zone&ndash;scatterer guidelines that keep the energy-balance error within 5%.</li>
+            <li>Advanced an efficient hybrid GL framework for <strong>broadband</strong> guided wave propagation modeling, reproducing benchmark solutions <strong>within 2% up to 1 MHz</strong> with a <strong>more than 1,000&times; speedup</strong> relative to finite element analysis.</li>
+            <li>Investigated the role of <strong>propagating and evanescent modes</strong> in guided wave scattering near structural discontinuities, and derived local zone&ndash;scatterer guidelines that keep the energy-balance error <strong>within 5%</strong>.</li>
           </ul>
           <p class="project-related">Related &middot; <a href="https://doi.org/10.1115/1.4065152">ASME JNDE (2024)</a> &middot; <a href="https://doi.org/10.1177/10775463231168926">Journal of Vibration and Control (2023)</a> &middot; <a href="https://doi.org/10.12783/shm2023/36954">SHM 2023</a></p>
         </div>
@@ -107,8 +114,8 @@
 
       <article class="project fig-wide" id="composites">
         <div class="fig-row">
-          <figure class="project-figure"><img src="assets/img/research/composites-damage-modes.png" alt="Laminate schematics and cross-section micrographs of the three damage modes: matrix crack, fiber breakage and delamination" loading="lazy"><figcaption>The three individual damage modes in cross-ply carbon/epoxy laminates: matrix crack (2 mm), fiber breakage (2 mm) and delamination (12.7 mm).</figcaption></figure>
-          <figure class="project-figure"><img src="assets/img/research/composites.png" alt="Waterfall plots of guided wave signals versus frequency at two receivers" loading="lazy"><figcaption>Guided wave signals in a pristine composite plate at receivers R1 (a) and R2 (b), 25 to 200 kHz.</figcaption></figure>
+          <figure class="project-figure"><img src="assets/img/research/composites-damage-modes.png" alt="Laminate schematics and cross-section micrographs of the three damage modes: matrix crack, fiber breakage and delamination" loading="lazy"><figcaption>The three single damage modes in cross-ply carbon/epoxy laminates: matrix crack (2 mm), fiber breakage (2 mm) and delamination (12.7 mm).</figcaption></figure>
+          <figure class="project-figure"><img src="assets/img/research/composites.png" alt="Waterfall plots of guided wave signals versus frequency at two receivers" loading="lazy"><figcaption>Guided wave signals from 25 to 200 kHz in a pristine composite plate, at receiver R1 before the defect location (a) and receiver R2 after it (b).</figcaption></figure>
         </div>
         <div>
           <p class="project-period">Jun 2023 &ndash; Jul 2026</p>
@@ -116,8 +123,9 @@
           <p class="project-collab">In collaboration with <a href="https://jacobsschool.ucsd.edu/faculty/profile?id=254">Prof. Hyonny Kim</a>, UC San Diego</p>
           <ul class="chips"><li class="chip">Composites</li><li class="chip">Delamination</li><li class="chip">Matrix crack</li><li class="chip">Fiber breakage</li><li class="chip">Impact damage</li><li class="chip">Time-frequency analysis</li></ul>
           <ul class="project-points">
-            <li>Evaluated guided wave sensitivity to individual damage modes and impact damage in composite laminates through ultrasonic experiments, GL modeling, and finite element analysis in Abaqus.</li>
-            <li>Applied broadband time-frequency analysis to characterize guided wave interactions with interlaminar delamination and identify sensitive mode-frequency features.</li>
+            <li>Isolated guided wave interaction with <strong>single damage modes</strong> (matrix crack, fiber breakage and delamination) in controlled CFRP specimens, using single-input dual-output (SIDO) deconvolution.</li>
+            <li>Measured <strong>repeatability, detectability and sensitivity</strong> for each damage mode with three features at six frequencies from 25 to 150 kHz, using matched baselines from the same panel to account for spatial variability.</li>
+            <li>Applied <strong>broadband time-frequency analysis</strong> to guided wave interactions with delamination to identify sensitive mode-frequency features.</li>
           </ul>
           <p class="project-related">Related &middot; <a href="publications.html">Composite Structures (under review)</a> &middot; <a href="publications.html">ASC 2026</a> &middot; <a href="publications.html">IWSHM 2025</a> &middot; <a href="publications.html">ASC 2024</a></p>
         </div>
@@ -130,21 +138,22 @@
           <h2>Physics-Informed AI for Composite Material States</h2>
           <ul class="chips"><li class="chip">Physics-informed AI</li><li class="chip">Hyperdimensional computing</li></ul>
           <ul class="project-points">
-            <li>Developed physics-informed hyperdimensional computing (HDC) to infer composite damage states from guided wave spectra, achieving more than 91% accuracy with more than 100&times; faster training than neural network baselines.</li>
+            <li>Developed <strong>physics-informed hyperdimensional computing (HDC)</strong> to infer composite damage states from guided wave spectra, achieving <strong>more than 91% accuracy</strong> with <strong>more than 100&times; faster training</strong> than neural network baselines.</li>
           </ul>
         </div>
       </article>
 
       <article class="project fig-wide" id="rail">
-        <figure class="project-figure"><a class="poster-link" href="assets/img/research/rail-slide-full.jpg" target="_blank" rel="noopener"><img src="assets/img/research/rail-slide.jpg" alt="Slide on non-contact rail inspection from a moving train: aerial view of the TTC test track with the two defect locations, the prototype mounted on the test car, a raw sensor signal and the reconstructed rail response, the damage index along the track, and ROC curves" loading="lazy"></a><figcaption>Field test at the TTC test track, with the non-contact prototype on the test car, the raw and reconstructed signals, the damage index (DI) along the track, and the ROC curves.</figcaption></figure>
+        <figure class="project-figure"><a class="poster-link" href="rail-field-test.html" target="_blank" rel="noopener"><img src="assets/img/research/rail-figure.jpg" alt="Aerial view of the TTC test track with the two defect locations, the prototype mounted under the test car, a raw sensor signal and the reconstructed rail response, the damage index along the track, and ROC curves" loading="lazy"></a><figcaption>Field test at the Transportation Technology Center (TTC) in Pueblo, CO, with the non-contact prototype on the test car, the raw and reconstructed signals, and the damage index (DI) along the track and ROC curves from a 20 mph run. <a class="fig-link" href="assets/docs/rail-slide.pdf" target="_blank" rel="noopener">View slide (PDF)</a></figcaption></figure>
         <div>
           <p class="project-period">Jun 2024 &ndash; Oct 2026</p>
           <h2>Non-Contact Ultrasonic Rail Inspection at Track Speed</h2>
           <p class="project-collab">In collaboration with <a href="https://jacobsschool.ucsd.edu/faculty/profile?id=62">Prof. Francesco Lanza di Scalea</a>, UC San Diego, supported by the U.S. Federal Railroad Administration</p>
           <ul class="chips"><li class="chip">Field testing</li><li class="chip">Signal processing</li><li class="chip">Rail inspection</li></ul>
           <ul class="project-points">
-            <li>Developed real-time passive signal reconstruction for train-mounted, non-contact ultrasonic rail inspection at up to 40 mph.</li>
-            <li>Evaluated detection with damage indices and ROC analysis over repeated field runs under realistic operations.</li>
+            <li>Processed the field-test dataset, about <strong>127 miles</strong> of runs at 20 and 40 mph, recorded by air-coupled sensors on a moving test car.</li>
+            <li>Reconstructed <strong>rail impulse responses</strong> from wheel&ndash;rail excitation and located them along the track with synchronized GPS and encoder data.</li>
+            <li>Computed <strong>damage indices</strong> with conventional and differential (sensor-pair) approaches across several frequency bands, and evaluated detection and the redundancy of repeated runs with ROC analysis, reaching an <strong>AUC of up to 0.89</strong> at 40 mph.</li>
           </ul>
           <p class="project-related">Related &middot; <a href="publications.html">AREMA 2026 (accepted)</a> &middot; <a href="publications.html">FRA technical reports (2026)</a></p>
         </div>
@@ -162,7 +171,7 @@
           <p class="project-collab">Advised by <a href="https://jacobsschool.ucsd.edu/faculty/profile?id=254">Prof. Hyonny Kim</a>, UC San Diego</p>
           <ul class="chips"><li class="chip">Digital image correlation</li><li class="chip">Composites</li></ul>
           <ul class="project-points">
-            <li>Applied high-speed 3D digital image correlation to composites, achieving validation errors of 2.49% for rigid-body motion and below 3% for localized displacements.</li>
+            <li>Applied high-speed camera 3D digital image correlation to composites, achieving validation errors of <strong>2.49%</strong> for rigid-body motion and <strong>below 3%</strong> for localized displacements.</li>
           </ul>
         </div>
       </article>
