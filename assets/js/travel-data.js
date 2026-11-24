@@ -26,6 +26,9 @@ window.TRIPS = [
     title: "ASME SSDM 2026" },
   { place: "Stanford, CA", when: "Sep 2025", type: "conference",
     title: "International Workshop on Structural Health Monitoring (IWSHM 2025)" },
-  { place: "San Diego, CA", when: "Oct 2024 &middot; Jun 2023", type: "conference",
-    title: "39th ASC Technical Conference and ASME SSDM 2023", note: "My home base, UC San Diego and San Diego State University" }
+  /* Two San Diego conferences, one card each (user, 11-23; was one combined card) */
+  { place: "San Diego, CA", when: "Oct 2024", type: "conference",
+    title: "39th ASC Annual Technical Conference", note: "My home base, UC San Diego and San Diego State University" },
+  { place: "San Diego, CA", when: "Jun 2023", type: "conference",
+    title: "ASME SSDM 2023" }
 ];
