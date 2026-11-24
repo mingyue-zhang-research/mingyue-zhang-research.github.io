@@ -115,7 +115,7 @@
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 74px; -webkit-text-size-adjust: 100%; }   /* header 58 + 16 (was 84 with the 68 px header) */
 body {
   margin: 0;
   background: var(--bg);
@@ -170,7 +170,7 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 }
 .header-inner {
   max-width: var(--maxw); margin: 0 auto; padding: 0 28px;
-  height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 20px;   /* all pages; 68 -> 58 (user, 11-23, Home option C) */
 }
 .brand {
   font-family: var(--font-serif); font-size: 23px; font-weight: 600;
@@ -207,7 +207,7 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .burst path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- Home hero ---------- */
-.hero { background: var(--band); padding: 64px 0 70px; }
+.hero { background: var(--band); padding: 30px 0 34px; }   /* Home top option C (user, 11-23, review\home_top; 64/70, then 44/48) */
 /* Layout A (user pick): name on the left, photo right next to it */
 .hero-grid { display: flex; justify-content: flex-start; align-items: center; gap: 160px; }   /* name left, photo beside it with a wide gap (user, 11-20; was 72px) */
 .hero-copy { min-width: 0; }
@@ -215,11 +215,14 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
   font-size: 12.5px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
   color: var(--gold-text); margin: 0 0 14px;
 }
+/* Home top option C (user, 11-23): name 58 -> 46 px (letter-spacing scaled), tighter eyebrow / name / wave
+   spacing (14/14/18 -> 10/10/12); the wave under the name follows the name width. */
+.hero .eyebrow { margin-bottom: 10px; }
 .hero h1 {
-  font-family: var(--font-serif); font-weight: 500; font-size: 58px;
-  letter-spacing: -1.2px; line-height: 1.08; margin-bottom: 14px;
+  font-family: var(--font-serif); font-weight: 500; font-size: 46px;
+  letter-spacing: -0.95px; line-height: 1.08; margin-bottom: 10px;
 }
-.hero .burst { margin: 0 0 18px; }
+.hero .burst { margin: 0 0 12px; }
 .affiliation { font-size: 17px; color: var(--muted); margin-bottom: 18px; }
 .lead { font-size: 19px; line-height: 1.65; color: var(--text); max-width: 640px; margin-bottom: 26px; }
 
@@ -249,7 +252,7 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 /* Portrait that switches to Momoko on hover / tap */
 .portrait { text-align: center; }
 .portrait-switch {
-  position: relative; width: 215px; height: 215px; margin: 0 auto;
+  position: relative; width: 185px; height: 185px; margin: 0 auto;   /* 215 -> 185 (user, 11-23, Home option C) */
   padding: 0; border: 6px solid var(--surface); border-radius: 50%;
   overflow: hidden; background: var(--band-soft);
   box-shadow: 0 18px 40px rgba(30, 60, 70, 0.16);
@@ -272,6 +275,13 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .page-head h1 { font-family: var(--font-serif); font-weight: 500; font-size: 46px; letter-spacing: -1px; margin-bottom: 10px; }
 .page-head p { color: var(--muted); font-size: 17.5px; max-width: 680px; margin: 0; }
 .page-head .burst { width: 330px; height: auto; flex-shrink: 0; margin-bottom: 0; }
+/* Description widths (user, 11-23), measured in Edge at 1x and 2.5x; recheck if the text changes.
+   Publications: line 1 "Journal papers, ... See also Google Scholar." needs 692 px (line 2 after a <br>).
+   Research: 2 lines need >= 832 px (847 + 747 px from 848); beside a 330 px wave only 784 px fits,
+   so the Research wave is 260 px (text space 1144 - 30 - 260 = 854). */
+body.page-pubs .page-head p { max-width: 704px; }
+body.page-research .page-head p { max-width: 852px; }
+body.page-research .page-head .burst { width: 260px; }
 /* Home: the wave under the name is exactly as wide as the name */
 .name-block { display: inline-block; max-width: 100%; }
 .hero .burst-hero { width: 100%; height: auto; }
@@ -291,6 +301,13 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 /* ---------- Sections ---------- */
 .section { padding: 56px 0 8px; }
 .section:last-of-type { padding-bottom: 64px; }
+/* Home spacing (user, 11-23): profile band option C, 40 px from the band to About, then a 55 px visible gap
+   before Recent News, Selected Publications and Research Projects (44 px earlier the same day; 64-84 before).
+   The last news item and the last publication have no bottom padding, so the section padding alone sets the gap. */
+#about { padding: 40px 0 0; }
+#news, #publications { padding: 55px 0 0; }
+#projects { padding-top: 55px; }
+#news-preview .news-item:last-child, #publications .pub:last-child { padding-bottom: 0; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
 .section h2 {
   font-family: var(--font-serif); font-weight: 500; font-size: 31px; letter-spacing: -0.4px;
@@ -301,9 +318,10 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
   border-radius: 2px; background: var(--yellow);
 }
 .more-link { font-size: 15px; font-weight: 600; white-space: nowrap; }
-/* Home About: paragraph and keyword chips share one width, the right edge of the "Wave propagation" chip
-   (858.9 px measured in Edge; user, 11-20) */
-.prose, .prose + .chips { max-width: 860px; }
+/* Home About: the paragraph fits in exactly 4 lines, the last one about 98% full (user, 11-23; was 860 px = the
+   right edge of the "Wave propagation" chip, 11-20). Measured in Edge at 1x and 2.5x: 5 lines below 904 px,
+   last line 98% full at 918-926 px. Recheck if the About text changes. */
+.prose, .prose + .chips { max-width: 920px; }
 .prose p { font-size: 17px; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
@@ -316,7 +334,7 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .news-list { list-style: none; margin: 0; padding: 0; }
 .news-item {
   display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 22px;
-  padding: 16px 0 17px; border-bottom: 1px solid var(--line);
+  padding: 11px 0 12px; border-bottom: 1px solid var(--line);   /* 12 + 1 + 11 = 24 px between items, Home and News (user, 11-23; was 16/17, then 10/11) */
 }
 .news-item:last-child { border-bottom: 0; }
 .news-date {
@@ -334,10 +352,16 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .sym-teaching { background: var(--lilac-soft); color: var(--sym-teaching); }
 .news-legend { display: flex; flex-wrap: wrap; gap: 8px 36px; margin: 0 0 26px; font-size: 16.5px; color: var(--muted); }   /* was 14px, gap 22px (user, 11-20) */
 .news-legend > span { display: inline-flex; align-items: center; gap: 7px; }
+/* Each key label in its headline color (user, 11-23, option D in review\news_legend_color); browsers without
+   :has() keep the muted gray. */
+.news-legend > span:has(.sym-award) { color: var(--head-award); }
+.news-legend > span:has(.sym-talk) { color: var(--head-talk); }
+.news-legend > span:has(.sym-paper) { color: var(--head-paper); }
+.news-legend > span:has(.sym-teaching) { color: var(--head-teaching); }
 .news-legend .news-sym { width: 26px; height: 26px; margin: 0; }
 .news-legend .news-sym svg { width: 15px; height: 15px; }
-.news-title {
-  font-family: var(--font-serif); font-size: 19.5px; font-weight: 500; letter-spacing: -0.1px;
+.news-title {   /* 17.5 px = 90% of the earlier 19.5 px (user, 11-23; options in review\news_title_size) */
+  font-family: var(--font-serif); font-size: 17.5px; font-weight: 500; letter-spacing: -0.1px;
   color: var(--heading); line-height: 1.3; margin: 0 0 3px;
 }
 .news-title.t-award { color: var(--head-award); }
@@ -354,6 +378,11 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .news-text .stat { color: var(--head-award); }   /* recipient-count line all in award gold ... (user, 11-21) */
 .news-text .stat strong { font-weight: 600; color: inherit; }    /* ... with "16 recipients worldwide" bold (inherit: the global strong rule is dark) */
 #news-preview .news-text a { font-style: italic; }   /* Home news list only: paper and report titles in italics like the talk titles (user, 11-20) */
+/* Home news list only: the two long talk titles each fit on one line (user, 11-23). Largest one-line sizes measured
+   in Edge at 1x and 2.5x: ASC 2026 14.45 px, ASNT 2026 13.85 px; set a little under. Recheck if a title or the
+   Home width changes. The News page keeps 15 px. */
+#news-preview a.paper[href$="#asc2026"] { font-size: 14.3px; }
+#news-preview a.paper[href$="#asnt2026"] { font-size: 13.7px; }
 .news-text a.paper .paper-icon { width: 14px; height: 14px; color: var(--sym-paper); vertical-align: -2px; margin-right: 1px; }
 .tag {
   display: inline-block; vertical-align: 2px; margin-right: 8px;
@@ -389,7 +418,7 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .pub-list { list-style: none; margin: 0; padding: 0; }
 .pub {
   display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 22px;
-  padding: 20px 0; border-bottom: 1px solid var(--line);
+  padding: 15px 0 16px; border-bottom: 1px solid var(--line);   /* 16 + 1 + 15 = 32 px between entries, Home / Publications / Travel (user, 11-23; was 20/20) */
 }
 .pub:last-child { border-bottom: 0; }
 .pub-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
@@ -452,7 +481,7 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .project-index {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 30px;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 22px 28px 18px; margin: 0 0 26px; box-shadow: var(--shadow);
+  padding: 22px 28px 18px; margin: 0 0 12px; box-shadow: var(--shadow);   /* 12 px like the project cards (user, 11-23; was 26) */
 }
 .pi-label { font-size: 12.5px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gold-text); margin: 0 0 8px; }
 .project-index ul { list-style: none; margin: 0; padding: 0; }
@@ -476,7 +505,7 @@ body.page-figure { --maxw: 1600px; }
 .project {
   display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 30px;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 28px; margin: 0 0 26px; box-shadow: var(--shadow); transition: box-shadow 0.25s, transform 0.25s;
+  padding: 28px; margin: 0 0 12px; box-shadow: var(--shadow); transition: box-shadow 0.25s, transform 0.25s;   /* 12 px between project cards (user, 11-23; was 26, then 16) */
 }
 .project:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
 .project-figure { margin: 0; }
@@ -566,7 +595,11 @@ body.page-figure { --maxw: 1600px; }
 .dot-conf { background: #4fa3ad; }
 .dot-personal { background: #e2b93b; }
 .dot-home { background: #c0607a; }
-.trip-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.trip-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }   /* 12 px like the Research panels (user, 11-23; was 22) */
+/* Travel spacing (user, 11-23): 40 px from the blue band to "Trips" (like Home's band to About; was 56) and a
+   55 px gap from the trip cards to "Talks and Presentations" (like the Home sections; was 8 + 56 = 64). */
+body.page-travel .page-head + .section { padding: 40px 0 0; }
+body.page-travel #talks { padding-top: 55px; }
 .trip {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow); transition: box-shadow 0.25s, transform 0.25s;
@@ -670,7 +703,7 @@ body.page-figure { --maxw: 1600px; }
 @media (max-width: 880px) {
   .menu-toggle { display: inline-grid; }
   .nav-links {
-    display: none; position: absolute; left: 0; right: 0; top: 68px;
+    display: none; position: absolute; left: 0; right: 0; top: 58px;   /* = header height */
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); padding: 8px 16px 14px;
   }
