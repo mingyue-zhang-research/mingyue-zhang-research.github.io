@@ -448,6 +448,31 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 
 /* ---------- Research cards ---------- */
 .research-intro { max-width: 800px; font-size: 17px; }
+/* Project index at the top of the Research page: three groups of jump links (user, 11-23) */
+.project-index {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 30px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 28px 18px; margin: 0 0 26px; box-shadow: var(--shadow);
+}
+.pi-label { font-size: 12.5px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gold-text); margin: 0 0 8px; }
+.project-index ul { list-style: none; margin: 0; padding: 0; }
+.project-index li { margin: 0 0 5px; }
+.project-index a { font-family: var(--font-serif); font-size: 17.5px; font-weight: 500; color: var(--title-ink); }
+.project-index a:hover { color: var(--head-paper); text-decoration: underline; text-underline-offset: 3px; }
+/* Highlights in the Research bullets: darker text at medium weight instead of bold (user, 11-23) */
+.project-points strong { font-weight: 500; color: var(--title-ink); }
+/* "View poster / slide" links under a figure (user, 11-23) */
+.fig-link { font-weight: 600; color: var(--head-paper); white-space: nowrap; }
+/* Enlarged-figure page (ldr-methodology.html): wider than the Research page, with the poster link (user, 11-23) */
+body.page-figure { --maxw: 1600px; }
+.figure-view { padding-top: 36px; }
+.fv-back { font-size: 14.5px; margin: 0 0 12px; }
+.fv-back a { font-weight: 600; }
+.fv-title { font-family: var(--font-serif); font-weight: 700; font-size: 30px; letter-spacing: -0.2px; color: var(--title-ink); margin: 0 0 6px; }
+.fv-sub { font-size: 15px; color: var(--muted); margin: 0 0 18px; }
+.fv-img { display: block; cursor: zoom-in; }
+.fv-img img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+.fv-foot { font-size: 18px; text-align: center; margin: 20px 0 0; }   /* "View full poster (PDF)" centered under the figure, larger (user, 11-23; was 15px, left) */
 .project {
   display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 30px;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
@@ -462,8 +487,9 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .project.fig-wide .project-figure { order: 2; max-width: 860px; }
 .project.fig-wide > .project-figure { margin-left: auto; margin-right: auto; }   /* single wide figure centered in the card (user, 11-20) */
 #gl.project.fig-wide > .project-figure,
-#ldr.project.fig-wide > .project-figure,
-#rail.project.fig-wide > .project-figure { max-width: 920px; }   /* GL figure, LDR poster and FRA slide a little larger than the others (user, 11-20: 1000, then 920) */
+#rail.project.fig-wide > .project-figure { max-width: 920px; }   /* GL figure and FRA figure a little larger than the others (user, 11-20: 1000, then 920) */
+#ldr.project.fig-wide > .project-figure { max-width: 960px; }   /* LDR methodology panel (user, 11-23: full card width, then smaller) */
+#hdc.project.fig-wide > .project-figure { max-width: 720px; }   /* HDC (AI) figure smaller: its text read larger than the other figures' (user, 11-23; was 860) */
 /* Two figures side by side under the text (e.g. Composite Laminates) */
 .project.fig-wide .fig-row { order: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
 .project.fig-wide .fig-row .project-figure { max-width: none; }
@@ -476,6 +502,7 @@ body.page-research { --maxw: 1200px; }   /* Research page (user, 11-20: 1300, th
 .project.fig-wide .fig-row.matched { width: 100%; max-width: 860px; margin-left: auto; margin-right: auto; }
 .project-figure video { display: block; width: 100%; height: auto; border-radius: 8px; background: #fff; border: 1px solid var(--line); }
 @media (max-width: 880px) {
+  .project-index { grid-template-columns: minmax(0, 1fr); padding: 18px 20px 14px; }
   .project.fig-wide .fig-row.matched { grid-template-columns: minmax(0, 1fr); }
   .project.fig-wide .fig-row.matched video { max-width: 220px; margin: 0 auto; }
   .project.fig-wide .fig-row.matched .poster-link { max-width: 440px; margin: 0 auto; }
