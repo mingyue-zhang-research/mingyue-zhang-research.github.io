@@ -614,6 +614,7 @@ body.page-travel #talks { padding-top: 55px; }
 .trip-when { font-size: 12.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin: 0 0 2px; }
 .trip-place { font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--heading); margin: 0 0 4px; }
 .trip-note { font-size: 14.5px; margin: 0; }
+.trip-short { font-size: 15px; font-weight: 600; color: var(--head-talk); margin: 0 0 2px; }   /* short name + year, above the full name; teal so it differs from the dark place name (user, 11-26) */
 .leaflet-popup-content { font-family: var(--font-sans); font-size: 13.5px; line-height: 1.5; }
 .leaflet-popup-content strong { color: #2a2f35; }
 

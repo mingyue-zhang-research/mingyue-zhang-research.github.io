@@ -77,27 +77,33 @@
             <li>Validated GL-predicted resonance frequencies <strong>within 1%</strong> using a laser Doppler vibrometer (LDV).</li>
             <li>Identified LDRs of aluminum panels remotely over a <strong>broadband frequency range of 0&ndash;750 kHz</strong> with a single-input dual-output (SIDO) setup, matching <strong>97.6%</strong> in GL and finite element modeling (COMSOL), and <strong>86.6%</strong> experimentally with piezoelectric and air-coupled transducers.</li>
           </ul>
-          <p class="project-related">Related &middot; <a href="https://doi.org/10.1016/j.ultras.2025.107912">Ultrasonics (2025)</a> &middot; <a href="publications.html">Structural Health Monitoring (under review)</a> &middot; <a href="publications.html">ASNT Research Symposium (2026)</a></p>
+          <p class="project-related">Related &middot; <a href="https://doi.org/10.1016/j.ultras.2025.107912">Ultrasonics (2025)</a> &middot; <a href="publications.html">Structural Health Monitoring (under review)</a> &middot; <a href="publications.html#asnt2026">ASNT Research Symposium (2026)</a></p>
         </div>
       </article>
 
       <article class="project" id="inverse">
-        <figure class="project-figure"><img src="assets/img/research/inverse.png" alt="3D surrogate surface of the first LDR frequency over notch length and substructure thickness" loading="lazy"><figcaption>Clough&ndash;Tocher surrogate of the first LDR frequency over notch length L and substructure thickness b, shown relative to a power-law fit.</figcaption></figure>
+        <figure class="project-figure"><img src="assets/img/research/inverse.png" alt="3D surrogate surface of the first LDR frequency over notch width and depth" loading="lazy"><figcaption>Clough&ndash;Tocher surrogate of the first LDR frequency over notch width L and depth b, shown relative to a power-law fit.</figcaption></figure>
         <div>
           <p class="project-period">Jul 2026 &ndash; Present</p>
           <h2>Inverse Characterization of Defects Using LDR</h2>
           <ul class="chips"><li class="chip">Inverse problems</li><li class="chip">Surrogate modeling</li></ul>
-          <p>LDR frequencies are governed by the defect size. Inverting this relation estimates the defect geometry directly from measured LDR frequencies.</p>
+          <p>LDR frequencies are governed by the defect geometry. Inverting this relation identifies the defect type and estimates its size from the LDR frequencies in the scattering spectra.</p>
+          <!-- Bullets (user, 11-26) from step2_forward_mapping_sensitivity (2a map, LOO CV median 0.027 %) and
+               step3_inversion_validation stage 1 (HYB, Huber, all 199 notches with 2+ LDRs: L 0.24 %, b 0.45 %;
+               one inversion about 1 s). Ratios are to the 2 mm plate: L/h 1-10, b/h 0.125-0.675 (b = depth d of the paper). -->
           <ul class="project-points">
-            <li>Developed a fast inverse analysis for defect characterization using Clough&ndash;Tocher (CT) surrogate models.</li>
-            <li>Leave-one-out cross-validation (LOO-CV) gave median errors of <strong>0.03%</strong> in LDR frequency and <strong>within 0.3%</strong> in defect size.</li>
+            <li>Built surrogate forward models of the LDR frequencies over notch width and depth from GL simulations, predicting unseen notches with a median error of <strong>0.03%</strong>.</li>
+            <li>Recovered both dimensions from the LDR frequencies alone by fitting these models with bounded nonlinear least squares, in <strong>about 1 s</strong> per notch.</li>
+            <li>Leave-one-out cross-validation on notches with width-to-thickness ratios of 1 to 10 and depth-to-thickness ratios of 0.125 to 0.675 gave median errors of <strong>0.24%</strong> in width and <strong>0.45%</strong> in depth.</li>
           </ul>
           <p class="project-related">Related &middot; Journal paper (in preparation)</p>
         </div>
       </article>
 
       <article class="project fig-wide" id="gl">
-        <figure class="project-figure"><a class="poster-link" href="assets/img/research/gl-methods-full.png" target="_blank" rel="noopener"><img src="assets/img/research/gl-methods.png" alt="Global-local configuration with the source and two receivers. The left global, local and right global regions are marked, with the formulas used in each listed below them, followed by rows for the coupling at the two boundaries, the modal energy and the SAFE modes" loading="lazy"></a><figcaption>Global&ndash;local (GL) method, with the formulas used in the left and right global regions (SAFE) and the local region (FE), the coupling at the two boundaries, and the modal energy that gives the scattering spectra.</figcaption></figure>
+        <!-- Original GL figure (user, 11-26: keep it) with a poster link under it; clicking it opens gl-methodology.html,
+             the enlarged view (5x render gl-methods-zoom.png) with the same poster link under it. -->
+        <figure class="project-figure"><a class="poster-link" href="gl-methodology.html" target="_blank" rel="noopener"><img src="assets/img/research/gl-methods.png" alt="Global-local configuration with the source and two receivers. The left global, local and right global regions are marked, with the formulas used in each listed below them, followed by rows for the coupling at the two boundaries, the modal energy and the SAFE modes" loading="lazy"></a><figcaption>Global&ndash;local (GL) method, with the formulas used in the left and right global regions (SAFE) and the local region (FE), the coupling at the two boundaries, and the modal energy that gives the scattering spectra. <a class="fig-link" href="assets/docs/gl-poster.pdf" target="_blank" rel="noopener">View poster (PDF)</a></figcaption></figure>
         <div>
           <p class="project-period">Aug 2021 &ndash; Present</p>
           <h2>Hybrid Global&ndash;Local Modeling of Guided Wave Scattering</h2>
@@ -108,7 +114,7 @@
             <li>Advanced an efficient hybrid GL framework for <strong>broadband</strong> guided wave propagation modeling, reproducing benchmark solutions <strong>within 2% up to 1 MHz</strong> with a <strong>more than 1,000&times; speedup</strong> relative to finite element analysis.</li>
             <li>Investigated the role of <strong>propagating and evanescent modes</strong> in guided wave scattering near structural discontinuities, and derived local zone&ndash;scatterer guidelines that keep the energy-balance error <strong>within 5%</strong>.</li>
           </ul>
-          <p class="project-related">Related &middot; <a href="https://doi.org/10.1115/1.4065152">ASME JNDE (2024)</a> &middot; <a href="https://doi.org/10.1177/10775463231168926">Journal of Vibration and Control (2023)</a> &middot; <a href="https://doi.org/10.12783/shm2023/36954">SHM 2023</a></p>
+          <p class="project-related">Related &middot; <a href="https://doi.org/10.1115/1.4065152">ASME JNDE (2024)</a> &middot; <a href="https://doi.org/10.1177/10775463231168926">Journal of Vibration and Control (2023)</a> &middot; <a href="https://doi.org/10.12783/shm2023/36954">IWSHM 2023</a></p>
         </div>
       </article>
 
@@ -127,7 +133,7 @@
             <li>Measured <strong>repeatability, detectability and sensitivity</strong> for each damage mode with three features at six frequencies from 25 to 150 kHz, using matched baselines from the same panel to account for spatial variability.</li>
             <li>Applied <strong>broadband time-frequency analysis</strong> to guided wave interactions with delamination to identify sensitive mode-frequency features.</li>
           </ul>
-          <p class="project-related">Related &middot; <a href="publications.html">Composite Structures (under review)</a> &middot; <a href="publications.html">ASC 2026</a> &middot; <a href="publications.html">IWSHM 2025</a> &middot; <a href="publications.html">ASC 2024</a></p>
+          <p class="project-related">Related &middot; <a href="publications.html">Composite Structures (under review)</a> &middot; <a href="publications.html#asc2026">ASC 2026</a> &middot; <a href="https://doi.org/10.12783/shm2025/37432">IWSHM 2025</a> &middot; <a href="https://doi.org/10.1007/978-3-032-05212-4_9">ASC 2024</a></p>
         </div>
       </article>
 
@@ -155,7 +161,7 @@
             <li>Reconstructed <strong>rail impulse responses</strong> from wheel&ndash;rail excitation and located them along the track with synchronized GPS and encoder data.</li>
             <li>Computed <strong>damage indices</strong> with conventional and differential (sensor-pair) approaches across several frequency bands, and evaluated detection and the redundancy of repeated runs with ROC analysis, reaching an <strong>AUC of up to 0.89</strong> at 40 mph.</li>
           </ul>
-          <p class="project-related">Related &middot; <a href="publications.html">AREMA 2026 (accepted)</a> &middot; <a href="publications.html">FRA technical reports (2026)</a></p>
+          <p class="project-related">Related &middot; <a href="publications.html#arema2026">AREMA 2026 (accepted)</a> &middot; <a href="publications.html">FRA technical reports (2026)</a></p>
         </div>
       </article>
 
